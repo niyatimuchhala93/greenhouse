@@ -4,19 +4,10 @@ pipeline {
         maven 'localMaven' 
     }
     stages{
-      stage ('Clean stage'){
+      stage ('Build'){
         steps{
-          sh 'mvn clean'
-        }
-      }
-      stage ('Compile stage'){
-        steps{
-          sh 'mvn compile'
-        }
-      }
-      stage ('Install stage'){
-        steps{
-          sh 'mvn install'
+	  echo 'Maven Build'
+          sh 'mvn -f greenhouse/pom.xml clean install'
         }
       }
 }
