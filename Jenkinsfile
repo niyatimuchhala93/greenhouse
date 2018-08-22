@@ -10,12 +10,21 @@ pipeline {
           sh 'mvn -f pom.xml clean install'
         }
       }
-    stage ('Deploy Docker'){  
+    stage ('Build Image and Push to Dockerhub'){  
      steps{ 
         sh """
            sudo docker image build -t tomcat-application .
            sudo docker tag tomcat-application kunalborkar/tomcat-application
            sudo docker push kunalborkar/tomcat-application
+           """
+        }
+    }
+    stage ('Deploy on EC2'){
+     steps{
+        sh """
+           cd /home/kunalb/Downloads/
+           ssh ec2-user@34.209.47.48 -i docker.pem 
+           sudo docker container run -d -p 9999:8080 --name app kunalborkar/tomcat-application
            """
         }
     }
