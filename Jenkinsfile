@@ -10,11 +10,11 @@ pipeline {
           sh 'mvn -f pom.xml clean install'
         }
       }
-    checkout scm
-    stage "Build Pex"
+    stage ('Deploy Docker'){  
     dir ('.') { 
-    sh('deploy.sh')
-}
+        sh('deploy.sh')
+        }
+    }
 }
 }
 
