@@ -10,6 +10,11 @@ pipeline {
           sh 'mvn -f pom.xml clean install'
         }
       }
+    checkout scm
+    stage "Build Pex"
+    dir ('.') { 
+    sh('deploy.sh')
+}
 }
 }
 
