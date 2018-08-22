@@ -12,11 +12,11 @@ pipeline {
       }
     stage ('Deploy Docker'){  
      steps{ 
-        sh ""
+        sh """
            docker image build -t tomcat-application .
            docker tag tomcat-application kunalborkar/tomcat-application
            docker push kunalborkar/tomcat-application
-           ""
+           """
         }
     }
 }
