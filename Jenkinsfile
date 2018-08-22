@@ -15,7 +15,6 @@ pipeline {
         sh """
            sudo docker image build -t tomcat-application .
            sudo docker tag tomcat-application kunalborkar/tomcat-application
-           su - kunalb
            sudo docker push kunalborkar/tomcat-application
            """
         }
