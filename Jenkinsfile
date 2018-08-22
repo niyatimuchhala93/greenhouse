@@ -7,7 +7,7 @@ pipeline {
       stage ('Build'){
         steps{
 	  echo 'Maven Build'
-          sh 'mvn -f greenhouse/pom.xml clean install'
+          sh 'mvn -f pom.xml clean install'
         }
       }
 }
