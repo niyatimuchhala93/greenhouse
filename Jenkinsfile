@@ -22,9 +22,7 @@ pipeline {
     stage ('Deploy on EC2'){
      steps{
         sh """
-           cd /home/kunalb/Downloads/
-           ssh ec2-user@34.209.47.48 -i docker.pem 
-           sudo docker container run -d -p 9999:8080 --name app kunalborkar/tomcat-application
+           ssh -tt ec2-user@34.209.47.48 -i docker.pem<<EOT sudo docker container run -d -p 9999:8080 --name app kunalborkar/tomcat-application EOT
            """
         }
     }
