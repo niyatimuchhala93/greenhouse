@@ -26,6 +26,28 @@ pipeline {
            """
         }
     }
+
+
+    stage ('NexusArtifactUploaderJob') {
+    steps {
+      nexusArtifactUploader {
+        nexusVersion('nexus2')
+        protocol('http')
+        nexusUrl('localhost:8081/nexus')
+        groupId('sp.sd')
+        version('2.4')
+        repository('NexusArtifactUploader')
+        #credentialsId('44620c50-1589-4617-a677-7563985e46e1')
+        artifact {
+            artifactId('greenhouse-artifact-uploader')
+            type('war')
+            classifier('release')
+            file('target/greenhouse-1.0.0.BUILD-SNAPSHOT.war')
+        }
+      }
+    }
+}
+
 }
 }
 
