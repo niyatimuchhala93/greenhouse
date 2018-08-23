@@ -617,14 +617,6 @@
 		</pluginRepository>
 	</pluginRepositories>
 
-	<distributionManagement>
-		<!-- Temporary until we have a need to publish to a remote release repository -->
-		<snapshotRepository>
-			<id>localPublish</id>
-			<name>localPublish</name>
-			<url>file://${user.home}/local-maven-publish-repository</url>
-		</snapshotRepository>
-	</distributionManagement>
 
         <distributionManagement>
                 <repository>
