@@ -38,7 +38,7 @@ nexusArtifactUploader(
     artifacts: [
         [artifactId: greenhouse,
          classifier: '',
-         file: 'greenhouse-' + 1.0.0 + '.BUILD-SNAPSHOT' + '.war',
+         file: 'greenhouse-' + version + '.BUILD-SNAPSHOT' + '.war',
          type: 'war']
     ]
  )
