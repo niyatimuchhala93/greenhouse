@@ -626,4 +626,13 @@
 		</snapshotRepository>
 	</distributionManagement>
 
+        <distributionManagement>
+                <repository>
+                   <id>greenhouse</id>
+                   <url>http://127.0.0.1:8081/nexus/content/repositories/greenhouse</url>
+                </repository>
+        </distributionManagement>
+
+
+
 </project>

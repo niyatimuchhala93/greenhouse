@@ -34,13 +34,12 @@ pipeline {
         nexusVersion('nexus2')
         protocol('http')
         nexusUrl('localhost:8081/nexus')
-        groupId('sp.sd')
-        version('2.4')
+        groupId('com.springsource')
+        version('1.0')
         repository('NexusArtifactUploader')
         artifact {
-            artifactId('greenhouse-artifact-uploader')
+            artifactId('greenhouse')
             type('war')
-            classifier('release')
             file('target/greenhouse-1.0.0.BUILD-SNAPSHOT.war')
         }
       }
