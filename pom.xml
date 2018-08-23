@@ -618,13 +618,12 @@
 	</pluginRepositories>
 
 
-        <distributionManagement>
-                <repository>
-                   <id>greenhouse</id>
-                   <url>http://127.0.0.1:8081/nexus/content/repositories/greenhouse</url>
-                </repository>
-        </distributionManagement>
-
+<distributionManagement>
+  <snapshotRepository>
+    <id>snapshots</id>
+    <url>http://127.0.0.1:8081/nexus/content/repositories/snapshots</url>
+  </snapshotRepository>
+</distributionManagement>
 
 
 </project>
