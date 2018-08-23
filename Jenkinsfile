@@ -37,7 +37,6 @@ pipeline {
         groupId('sp.sd')
         version('2.4')
         repository('NexusArtifactUploader')
-        #credentialsId('44620c50-1589-4617-a677-7563985e46e1')
         artifact {
             artifactId('greenhouse-artifact-uploader')
             type('war')
