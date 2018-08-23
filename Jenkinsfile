@@ -27,7 +27,8 @@ pipeline {
         }
     }
 
-
+}
+}
 freeStyleJob('NexusArtifactUploaderJob') {
     steps {
       nexusArtifactUploader {
@@ -46,6 +47,4 @@ freeStyleJob('NexusArtifactUploaderJob') {
       }
     }
   }
-}
-}
 
