@@ -32,7 +32,6 @@ pipeline {
 
 
 stage ('Nexus Deploy'){
-        steps{
         nexusArtifactUploader {
         artifactId('greenhouse')
         file('target/greenhouse-1.0.0.BUILD-SNAPSHOT.war')
@@ -47,6 +46,4 @@ stage ('Nexus Deploy'){
         repository('greenhouse')
         version('0.0.1-SNAPSHOT')
         }
-  }
 }
-
