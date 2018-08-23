@@ -29,22 +29,17 @@ pipeline {
 
 }
 }
-freeStyleJob('NexusArtifactUploaderJob') {
-    steps {
-      nexusArtifactUploader {
-        nexusVersion('nexus2')
-        protocol('http')
-        nexusUrl('localhost:8081/nexus')
-        groupId('com.springsource')
-        version('1.0')
-        repository('greenhouse')
-        artifact {
-            artifactId('greenhouse')
-            type('war')
-            classifier('')
-            file('target/greenhouse-1.0.0.BUILD-SNAPSHOT.war')
-        }
-      }
-    }
-  }
 
+Stage 'Nexus Deploy'
+     nexusArtifactUploader
+        artifactId: 'greenhouse',
+        file: 'target/greenhouse-1.0.0.BUILD-SNAPSHOT.war',
+        groupId: 'com.springsource',
+        type:'war',
+        nexusPassword: 'admin123',
+        nexusUrl: 'localhost:8081/nexus',
+        nexusUser: 'admin',
+        nexusVersion: 'nexus2',
+        protocol: 'http',
+        repository: 'greenhouse',
+        version: '0.0.1-SNAPSHOT'
