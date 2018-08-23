@@ -30,7 +30,7 @@ pipeline {
 }
 }
 
-Stage 'Nexus Deploy'
+Stage ('Nexus Deploy'){
      nexusArtifactUploader
         artifactId: 'greenhouse',
         file: 'target/greenhouse-1.0.0.BUILD-SNAPSHOT.war',
@@ -43,3 +43,4 @@ Stage 'Nexus Deploy'
         protocol: 'http',
         repository: 'greenhouse',
         version: '0.0.1-SNAPSHOT'
+}
