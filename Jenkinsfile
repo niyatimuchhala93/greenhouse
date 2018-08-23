@@ -28,21 +28,24 @@ pipeline {
     }
 
 
-nexusArtifactUploader(
-    nexusVersion: 'nexus2',
-    protocol: 'http',
-    nexusUrl: 'localhost:8081/nexus',
-    groupId: 'com.springsource',
-    version: 1.0,
-    repository: 'greenhouse',
-    artifacts: [
-        [artifactId: greenhouse,
-         classifier: '',
-         file: 'greenhouse-' + version + '.BUILD-SNAPSHOT' + '.war',
-         type: 'war']
-    ]
- )
-
+freeStyleJob('NexusArtifactUploaderJob') {
+    steps {
+      nexusArtifactUploader {
+        nexusVersion('nexus2')
+        protocol('http')
+        nexusUrl('localhost:8081/nexus')
+        groupId('com.springsource')
+        version('1.0')
+        repository('greenhouse')
+        artifact {
+            artifactId('greenhouse')
+            type('war')
+            classifier('')
+            file('target/greenhouse-1.0.0.BUILD-SNAPSHOT.war')
+        }
+      }
+    }
+  }
 }
 }
 
