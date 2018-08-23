@@ -32,9 +32,9 @@ pipeline {
 
 stage ('Nexus Deploy'){
         nexusArtifactUploader (
-        artifactId: 'greenhouse',
+        artifactId: 'com.springsource',
         file: 'target/greenhouse-1.0.0.BUILD-SNAPSHOT.war',
-        groupId: 'com.springsource',
+        groupId: 'greenhouse',
         type: 'war',
         protocol: 'http',
         nexusPassword: 'admin123',
