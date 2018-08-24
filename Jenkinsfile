@@ -7,7 +7,7 @@ pipeline {
       stage ('Build'){
         steps{
 	  echo 'Maven Build'
-          sh 'mvn -f pom.xml clean install'
+          sh 'mvn -f pom.xml clean install deploy'
         }
       }
     stage ('Build Image and Push to Dockerhub'){  
@@ -22,11 +22,10 @@ pipeline {
     stage ('Deploy on EC2'){
      steps{
         sh """
-           ssh -tt ec2-user@54.186.115.81 sudo docker container run -d -p 9999:8080 --name app kunalborkar/tomcat-application
+           ssh -tt ec2-user@54.203.21.64 sudo docker container run -d -p 9999:8080 --name app kunalborkar/tomcat-application
            """
         }
     }
-
 }
 }
 
