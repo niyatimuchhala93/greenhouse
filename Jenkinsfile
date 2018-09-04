@@ -10,9 +10,16 @@ pipeline {
           sh 'mvn -f pom.xml clean install deploy'
         }
       }
-    stage ('Build Image and Push to Dockerhub'){  
-     steps{ 
-        sh """
+
+      stage ('SonarQube'){
+          steps{
+              sh 'mvn sonar:sonar -Dsonar.host.url=http://127.0.0.1:9000/sonar'
+              }
+           }
+    
+      stage ('Build Image and Push to Dockerhub'){  
+        steps{ 
+           sh """
            sudo docker image build -t tomcat-application .
            sudo docker tag tomcat-application kunalborkar/tomcat-application
            sudo docker push kunalborkar/tomcat-application
